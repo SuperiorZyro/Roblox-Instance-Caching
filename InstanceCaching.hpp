@@ -1,6 +1,9 @@
 //Probably some better way to do this
 //this is ready to skid from and dex will work!
 
+std::unordered_map<void*, int> IsRobloxCached;
+std::unordered_map<void*, int> CachedUserDatas;
+
 case RLUA_TUSERDATA: {
 	void* RobloxKey = RBX::touserdata(Roblox, Index);
 	if(IsRobloxCached.find(RobloxKey) == IsRobloxCached.cend()) //not cached
