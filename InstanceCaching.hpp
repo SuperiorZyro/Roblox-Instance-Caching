@@ -17,7 +17,7 @@ case RLUA_TUSERDATA: {
 			UnWrap(Roblox, Lua, -1);
 			lua_setmetatable(Lua, -2);
 
-			IsRobloxCached[RobloxKey] = 1; //add to map because now its cached
+			IsRobloxCached[RobloxKey] = true; //add to map because now its cached
 		}
 	break;
 }
