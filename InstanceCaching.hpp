@@ -1,4 +1,7 @@
-			case RLUA_TUSERDATA: {
+//Probably some better way to do this
+//this is ready to skid from and dex will work!
+
+case RLUA_TUSERDATA: {
 				void* RobloxKey = RBX::touserdata(Roblox, Index);
 				if(IsRobloxCached.find(RobloxKey) == IsRobloxCached.cend()) //not cached
 				{
@@ -14,10 +17,10 @@
 					IsRobloxCached[RobloxKey] = 1; //add to map because now its cached
 				}
 				break;
-			}
+}
       
       
-			case LUA_TUSERDATA: {
+case LUA_TUSERDATA: {
 				const auto LuaIterator = CachedUserDatas.find(lua_touserdata(Lua, Index)); //check for dummy lua userdata
 				if(LuaIterator != CachedUserDatas.cend()) { //if found
 					RBX::rawgeti(Roblox, LUA_REGISTRYINDEX, LuaIterator->second); //table[key]; add key to stack.
@@ -25,5 +28,4 @@
 				else {
 					RBX::newuserdata(Roblox, 0); //not found!
 				}
-			}
- 
+}
